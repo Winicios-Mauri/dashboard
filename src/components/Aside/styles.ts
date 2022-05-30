@@ -3,7 +3,8 @@ import  styled  from 'styled-components'
 // Criando elemento container
 export const Container = styled.div`
   grid-area: AS;
+  color: ${props => props.theme.colors.white};
 
-  background-color: #252a48;
+  background-color: ${props => props.theme.colors.secondary}; 
 `;
 
