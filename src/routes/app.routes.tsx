@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import Layout from '../components/Layout'
 import Dashboard from '../pages/Dashboard'
@@ -8,10 +8,10 @@ import List from '../pages/List'
 const AppRoutes: React.FC = () => (
   <BrowserRouter>
     <Layout>
-      <Routes>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/list/:type" element={<List />} />
-      </Routes>
+      <Switch>
+        <Route path="/" exact component={Dashboard} />
+        <Route path="/list/:type" exact component={List} />
+      </Switch>
     </Layout>
   </BrowserRouter>
   // <Switch>

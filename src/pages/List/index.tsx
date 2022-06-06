@@ -18,7 +18,15 @@ const List: React.FC<IRouteParams> = ({ match }) => {
   const { type } = match.params
 
   const title = useMemo(() => {
-    return type === 'entry-balance' ? 'Entradas' : 'Saídas'
+    return type === 'entry-balance'
+      ? {
+          title: 'Entrada',
+          lineColor: '#F7931B'
+        }
+      : {
+          title: 'Saídas',
+          lineColor: '#E44C4E'
+        }
   }, [type])
 
   const months = [
@@ -35,7 +43,7 @@ const List: React.FC<IRouteParams> = ({ match }) => {
 
   return (
     <Container>
-      <ContentHeader title={title} lineColor="#cf1818">
+      <ContentHeader title={title.title} lineColor={title.lineColor}>
         <SelectInput options={months} />
         <SelectInput options={year} />
       </ContentHeader>
