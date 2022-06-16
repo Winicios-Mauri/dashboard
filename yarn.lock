@@ -9152,7 +9152,7 @@
   "resolved" "https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz"
   "version" "8.3.2"
 
-"uuidv4@^6.2.0":
+"uuidv4@^6.2.13":
   "integrity" "sha512-AXyzMjazYB3ovL3q051VLH06Ixj//Knx7QnUSi1T//Ie3io6CpsPu9nVMOx5MoLWh6xV0B9J0hIaxungxXUbPQ=="
   "resolved" "https://registry.npmjs.org/uuidv4/-/uuidv4-6.2.13.tgz"
   "version" "6.2.13"
