@@ -25,21 +25,21 @@ export default [
     amount: '300.00',
     type: 'saída',
     frequency: 'recorrente',
-    date: '2020-01-23'
+    date: '2022-01-06'
   },
   {
     description: 'Compras do mês',
     amount: '625.78',
     type: 'saída',
     frequency: 'recorrente',
-    date: '2020-01-23'
+    date: '2022-01-06'
   },
   {
     description: 'Lanche',
     amount: '45.70',
     type: 'saída',
     frequency: 'eventual',
-    date: '2020-01-23'
+    date: '2022-01-06'
   },
   {
     description: 'Blusa',

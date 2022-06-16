@@ -11,14 +11,14 @@ export default [
     amount: '150.13',
     type: 'entrada',
     frequency: 'eventual',
-    date: '2022-01-17'
+    date: '2022-01-06'
   },
   {
     description: 'Salário',
     amount: '2500.23',
     type: 'entrada',
     frequency: 'recorrente',
-    date: '2020-02-10'
+    date: '2022-01-06'
   },
   {
     description: 'Freela site',
@@ -39,7 +39,7 @@ export default [
     amount: '2500.25',
     type: 'entrada',
     frequency: 'recorrente',
-    date: '2020-03-10'
+    date: '2022-01-06'
   },
   {
     description: 'Salário',
