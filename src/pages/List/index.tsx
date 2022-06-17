@@ -31,12 +31,14 @@ interface IData {
 
 const List: React.FC<IRouteParams> = ({ match }) => {
   const [data, setData] = useState<IData[]>([])
-  const [monthSelected, setMonthSelected] = useState<string>(
-    String(new Date().getMonth() + 1)
+  const [monthSelected, setMonthSelected] = useState<number>(
+    new Date().getMonth() + 1
   )
-  const [yearSelected, setYearSelected] = useState<string>(
-    String(new Date().getFullYear())
+
+  const [yearSelected, setYearSelected] = useState<number>(
+    new Date().getFullYear()
   )
+
   const [selectedFrequency, setSelectedFrequency] = useState([
     'recorrente',
     'eventual'
@@ -102,12 +104,32 @@ const List: React.FC<IRouteParams> = ({ match }) => {
     }
   }
 
+  // convertendo mês para numero
+  const handleMonthSelected = (month: string) => {
+    try {
+      const parseMonth = Number(month)
+      setMonthSelected(parseMonth)
+    } catch (error) {
+      throw new Error('Erro ao converter o mes')
+    }
+  }
+
+  // convertendo ano para numero
+  const handleYearSelected = (year: string) => {
+    try {
+      const parseYear = Number(year)
+      setYearSelected(parseYear)
+    } catch (error) {
+      throw new Error('Erro ao converter o ano')
+    }
+  }
+
   // Primeiro filtramos a data pelo mes e pelo ano
   useEffect(() => {
     const filteredDate = listData.filter(item => {
       const date = new Date(item.date)
-      const month = String(date.getMonth() + 1)
-      const year = String(date.getFullYear())
+      const month = date.getMonth() + 1
+      const year = date.getFullYear()
 
       return (
         month === monthSelected &&
@@ -135,12 +157,12 @@ const List: React.FC<IRouteParams> = ({ match }) => {
       <ContentHeader title={title.title} lineColor={title.lineColor}>
         <SelectInput
           options={months}
-          onChange={e => setMonthSelected(e.target.value)}
+          onChange={e => handleMonthSelected(e.target.value)}
           defaultValue={monthSelected}
         />
         <SelectInput
           options={years}
-          onChange={e => setYearSelected(e.target.value)}
+          onChange={e => handleYearSelected(e.target.value)}
           defaultValue={yearSelected}
         />
       </ContentHeader>
