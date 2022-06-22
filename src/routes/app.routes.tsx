@@ -10,14 +10,11 @@ const AppRoutes: React.FC = () => (
     <Layout>
       <Switch>
         <Route path="/" exact component={Dashboard} />
+        <Route path="/dashboard" exact component={Dashboard} />
         <Route path="/list/:type" exact component={List} />
       </Switch>
     </Layout>
   </BrowserRouter>
-  // <Switch>
-  //   <Route path="/dashboard" element={<Dashboard />} />
-  //   <Route path="/list/:type" element={<List />} />
-  // </Switch>
 )
 
 export default AppRoutes
