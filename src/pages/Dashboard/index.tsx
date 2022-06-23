@@ -7,6 +7,10 @@ import WalletBox from '../../components/WalletBox'
 import expenses from '../../repositories/expenses'
 import gains from '../../repositories/gains'
 import listOffMonths from '../../utils/months'
+import MessageBox from '../../components/MessageBox'
+
+import happyImg from '../../assets/happy.svg'
+import sadImg from '../../assets/sad.svg'
 
 import { Container, Content } from './styles'
 
@@ -107,6 +111,13 @@ const Dashboard: React.FC = () => {
           amount={4850.0}
           footerLabel="atualizado com base na entrada e saida"
           icon="arrowDown"
+        />
+
+        <MessageBox
+          title="Muito Bem!"
+          description="Sua carteira está positiva!"
+          footerText="Continue assim. Considere seu saldo sempre!"
+          icon={happyImg}
         />
       </Content>
     </Container>
