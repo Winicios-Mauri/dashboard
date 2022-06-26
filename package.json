@@ -10,7 +10,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
-    "@types/recharts": "^1.8.14",
+    "@types/recharts": "^1.8.23",
     "react": "^16.13.1",
     "react-countup": "^6.3.0",
     "react-dom": "^16.13.1",
@@ -18,7 +18,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^5.0.1",
     "react-switch": "^5.0.1",
-    "recharts": "^1.8.5",
+    "recharts": "^2.1.11",
     "styled-components": "^5.3.5",
     "typescript": "~3.7.2",
     "uuidv4": "^6.2.13"

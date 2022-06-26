@@ -8,6 +8,7 @@ import expenses from '../../repositories/expenses'
 import gains from '../../repositories/gains'
 import listOffMonths from '../../utils/months'
 import MessageBox from '../../components/MessageBox'
+import PieChart from '../../components/PieChart'
 
 import happyImg from '../../assets/happy.svg'
 import sadImg from '../../assets/sad.svg'
@@ -22,12 +23,6 @@ const Dashboard: React.FC = () => {
   const [yearSelected, setYearSelected] = useState<number>(
     new Date().getFullYear()
   )
-
-  const options = [
-    { value: 'Winicios', label: 'Winicios' },
-    { value: 'Maria', label: 'Maria' },
-    { value: 'Joao', label: 'Joao' }
-  ]
 
   const years = useMemo(() => {
     let uniqueYears: number[] = []
@@ -108,7 +103,7 @@ const Dashboard: React.FC = () => {
         footerText: 'Verifique seus gastos',
         icon: sadImg
       }
-    } else if (totalBalance == 0) {
+    } else if (totalBalance === 0) {
       return {
         title: 'Eitaaaa!',
         description: 'Nesse mês você gastou exatamente o que ganhou !',
@@ -187,6 +182,8 @@ const Dashboard: React.FC = () => {
           footerText={message.footerText}
           icon={message.icon}
         />
+
+        <PieChart />
       </Content>
     </Container>
   )
