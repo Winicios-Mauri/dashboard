@@ -61,6 +61,8 @@ export const Legend = styled.li<ILengendProps>`
     height: 40px;
     border-radius: 5px;
 
+    margin: 3px;
+
     font-size: 18px;
     line-height: 40px;
     text-align: center;
@@ -71,4 +73,8 @@ export const Legend = styled.li<ILengendProps>`
   }
 `
 
-export const SideRight = styled.main``
+export const SideRight = styled.main`
+  display: flex;
+  flex: 1;
+  justify-content: center;
+`
