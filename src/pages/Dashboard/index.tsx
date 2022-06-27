@@ -9,6 +9,7 @@ import gains from '../../repositories/gains'
 import listOffMonths from '../../utils/months'
 import MessageBox from '../../components/MessageBox'
 import PieChartBox from '../../components/PieChartBox'
+import HistoryBox from '../../components/HistoryBox'
 
 import happyImg from '../../assets/happy.svg'
 import sadImg from '../../assets/sad.svg'
@@ -143,6 +144,57 @@ const Dashboard: React.FC = () => {
     return data
   }, [totalGains, totalExpenses])
 
+  const historyData = useMemo(() => {
+    return listOffMonths
+      .map((_, month) => {
+        let amountEntry = 0
+        gains.forEach(gains => {
+          const date = new Date(gains.date)
+          const gainMonth = date.getMonth()
+          const gainYear = date.getFullYear()
+
+          if (gainMonth === month && gainYear === yearSelected) {
+            try {
+              amountEntry += Number(gains.amount)
+            } catch {
+              throw new Error('Valor de entrada inválido')
+            }
+          }
+        })
+
+        let amountOutput = 0
+        expenses.forEach(expenses => {
+          const date = new Date(expenses.date)
+          const expensesMonth = date.getMonth()
+          const expensesYear = date.getFullYear()
+
+          if (expensesMonth === month && expensesYear === yearSelected) {
+            try {
+              amountOutput += Number(expenses.amount)
+            } catch {
+              throw new Error('Valor de saída inválido')
+            }
+          }
+        })
+
+        return {
+          monthNumber: month,
+          month: listOffMonths[month].substring(0, 3),
+          amountEntry,
+          amountOutput
+        }
+      })
+      .filter(item => {
+        const currentMont = new Date().getMonth()
+        const currenYear = new Date().getFullYear()
+
+        return (
+          (yearSelected === currenYear && item.monthNumber <= currentMont) ||
+          yearSelected < currenYear
+        )
+      })
+  }, [yearSelected])
+
   const handleMonthSelected = (month: string) => {
     try {
       const parseMonth = Number(month)
@@ -207,6 +259,12 @@ const Dashboard: React.FC = () => {
         />
 
         <PieChartBox data={rellationExpensesVersusGains} />
+
+        <HistoryBox
+          data={historyData}
+          lineColorAmountEntry="#f7931b"
+          lineColorAmountOutput="#e44c4e"
+        />
       </Content>
     </Container>
   )
