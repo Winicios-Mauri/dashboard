@@ -15,6 +15,7 @@ import BarChartBox from '../../components/BarChartBox'
 import happyImg from '../../assets/happy.svg'
 import sadImg from '../../assets/sad.svg'
 import grinningImg from '../../assets/grinning.svg'
+import opsImg from '../../assets/ops.svg'
 
 import { Container, Content } from './styles'
 
@@ -105,6 +106,13 @@ const Dashboard: React.FC = () => {
         footerText: 'Verifique seus gastos',
         icon: sadImg
       }
+    } else if (totalGains === 0 && totalExpenses === 0) {
+      return {
+        title: 'Ops',
+        description: 'Nesse mês não há registro de entrada e saída',
+        footerText: 'Neste mês não foi realizado nenhum tipo de movimentação',
+        icon: opsImg
+      }
     } else if (totalBalance === 0) {
       return {
         title: 'Eitaaaa!',
@@ -120,25 +128,25 @@ const Dashboard: React.FC = () => {
         icon: happyImg
       }
     }
-  }, [totalBalance])
+  }, [totalBalance, totalGains, totalExpenses])
 
   const rellationExpensesVersusGains = useMemo(() => {
     const total = totalGains + totalExpenses
 
-    const percentGains = (totalGains / total) * 100
-    const percentExpenses = (totalExpenses / total) * 100
+    const percentGains = Number(((totalGains / total) * 100).toFixed(2))
+    const percentExpenses = Number(((totalExpenses / total) * 100).toFixed(2))
 
     const data = [
       {
         name: 'Entradas',
-        value: totalExpenses,
-        percent: Number(percentGains.toFixed(2)),
+        value: totalGains,
+        percent: percentGains ? percentGains : 0,
         color: '#E44C4E'
       },
       {
         name: 'Saídas',
         value: totalExpenses,
-        percent: Number(percentExpenses.toFixed(2)),
+        percent: percentExpenses ? percentExpenses : 0,
         color: '#F7931B'
       }
     ]
@@ -218,17 +226,22 @@ const Dashboard: React.FC = () => {
       })
 
     const total = amountRecurrent + amountEventual
+    const percentRecurrent = Number(
+      ((amountRecurrent / total) * 100).toFixed(2)
+    )
+    const percentEventual = Number(((amountEventual / total) * 100).toFixed(2))
+
     return [
       {
         name: 'Recorrentes',
         amount: amountRecurrent,
-        percent: Number(((amountRecurrent / total) * 100).toFixed(2)),
+        percent: percentRecurrent ? percentRecurrent : 0,
         color: '#f7931b'
       },
       {
         name: 'Eventuais',
         amount: amountEventual,
-        percent: Number(((amountEventual / total) * 100).toFixed(2)),
+        percent: percentEventual ? percentEventual : 0,
         color: '#e44c4e'
       }
     ]
@@ -256,17 +269,22 @@ const Dashboard: React.FC = () => {
       })
 
     const total = amountRecurrent + amountEventual
+    const percentRecurrent = Number(
+      ((amountRecurrent / total) * 100).toFixed(2)
+    )
+    const percentEventual = Number(((amountEventual / total) * 100).toFixed(2))
+
     return [
       {
         name: 'Recorrentes',
         amount: amountRecurrent,
-        percent: Number(((amountRecurrent / total) * 100).toFixed(2)),
+        percent: percentRecurrent ? percentRecurrent : 0,
         color: '#f7931b'
       },
       {
         name: 'Eventuais',
         amount: amountEventual,
-        percent: Number(((amountEventual / total) * 100).toFixed(2)),
+        percent: percentEventual ? percentEventual : 0,
         color: '#e44c4e'
       }
     ]
