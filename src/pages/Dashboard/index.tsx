@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useCallback } from 'react'
 
 import ContentHeader from '../../components/ContentHeader'
 import SelectInput from '../../components/SelectInput'
@@ -290,24 +290,24 @@ const Dashboard: React.FC = () => {
     ]
   }, [yearSelected, monthSelected])
 
-  const handleMonthSelected = (month: string) => {
+  const handleMonthSelected = useCallback((month: string) => {
     try {
       const parseMonth = Number(month)
       setMonthSelected(parseMonth)
     } catch {
       throw new Error('Erro ao converter o mes')
     }
-  }
+  }, [])
 
   // convertendo ano para numero
-  const handleYearSelected = (year: string) => {
+  const handleYearSelected = useCallback((year: string) => {
     try {
       const parseYear = Number(year)
       setYearSelected(parseYear)
     } catch {
       throw new Error('Erro ao converter o ano')
     }
-  }
+  }, [])
 
   return (
     <Container>
