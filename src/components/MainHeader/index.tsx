@@ -9,6 +9,7 @@ import { Container, Profile, Welcome, Username } from './styles'
 
 const MainHeader: React.FC = () => {
   const { toggleTheme, theme } = useTheme()
+
   const [darkTheme, setDarkTheme] = useState(() =>
     theme.title === 'dark' ? true : false
   )
