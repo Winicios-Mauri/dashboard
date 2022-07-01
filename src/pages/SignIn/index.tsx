@@ -2,6 +2,8 @@ import React from 'react'
 
 import logoImg from '../../assets/logo.svg'
 
+import Input from '../../components/Input'
+
 import { Container, Logo, Form, FormTitle } from './styles'
 
 const SignIn: React.FC = () => {
@@ -12,10 +14,11 @@ const SignIn: React.FC = () => {
         <h2>Minha Carteira</h2>
       </Logo>
       <Form>
-        <FormTitle>Entrar</FormTitle>
+        <FormTitle onSubmit={() => {}}>Entrar</FormTitle>
+        <Input type="email" required placeholder="E-mail" />
+        <Input type="password" required placeholder="Senha" />
         <input type="text"></input>
         <input type="text"></input>
-
         <button type="submit">Acessar</button>
       </Form>
     </Container>
