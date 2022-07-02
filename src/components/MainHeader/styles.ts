@@ -1,10 +1,10 @@
-import  styled  from 'styled-components'
+import styled from 'styled-components'
 
 // Criando elemento container
 export const Container = styled.div`
   grid-area: MH;
-  background-color: ${props => props.theme.colors.secondary};  
-  
+  background-color: ${props => props.theme.colors.secondary};
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,13 +12,12 @@ export const Container = styled.div`
   padding: 0 10px;
 
   border-bottom: 1px solid ${props => props.theme.colors.gray};
-`;
+`
 
 export const Profile = styled.div`
-  color: ${props => props.theme.colors.white}  
-`;
+  color: ${props => props.theme.colors.white};
+`
 
-export const Welcome = styled.h3``;
+export const Welcome = styled.h3``
 
-export const Username = styled.span``;
-
+export const Username = styled.span``
