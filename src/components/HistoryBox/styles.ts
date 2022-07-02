@@ -30,6 +30,10 @@ export const Header = styled.div`
     margin-bottom: 20px;
     padding-left: 15px;
   }
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+  }
 `
 
 export const LegendContainer = styled.div`
@@ -44,7 +48,7 @@ export const Legend = styled.li<ILengendProps>`
   align-items: center;
 
   margin-bottom: 7px;
-  margin-left: 7px;
+  margin-left: 12px;
 
   > div {
     background-color: ${props => props.color};
@@ -62,5 +66,12 @@ export const Legend = styled.li<ILengendProps>`
 
   > span {
     margin-left: 5px;
+  }
+
+  @media (max-width: 1280px) {
+    > div {
+      width: 30px;
+      height: 30px;
+    }
   }
 `
