@@ -31,12 +31,12 @@ export const Logo = styled.div`
 
 export const Form = styled.form`
   width: 300px;
-  height: 300px;
+  height: 330px;
 
   padding: 30px;
   border-radius: 10px;
 
-  border-color: ${props => props.theme.colors.tertiary};
+  background-color: ${props => props.theme.colors.tertiary};
 `
 
 export const FormTitle = styled.h1`
